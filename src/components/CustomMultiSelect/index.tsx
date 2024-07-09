@@ -16,12 +16,14 @@ import { Product } from "../../model";
 interface CustomMultiSelectProps {
   options: Product[];
   value: any;
+  disable:boolean;
   handleChange: (event: SelectChangeEvent<number[]>) => void;
 }
 
 const CustomMultiSelect: React.FC<CustomMultiSelectProps> = ({
   options,
   value,
+  disable,
   handleChange,
 }) => {
   console.log(options);
@@ -33,6 +35,7 @@ const CustomMultiSelect: React.FC<CustomMultiSelectProps> = ({
         id="product-select"
         multiple
         value={value}
+        disabled={disable}
         onChange={handleChange}
         input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
         renderValue={(selected) => (

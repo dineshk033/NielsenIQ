@@ -90,6 +90,7 @@ const FilterSection: React.FC<{
         <CustomMultiSelect
           options={productList}
           value={product}
+          disable={!category}
           handleChange={onProductChange}
         />
         <Button
