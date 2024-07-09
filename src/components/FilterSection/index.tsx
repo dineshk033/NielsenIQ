@@ -14,7 +14,7 @@ const FilterSection: React.FC<{
   const { data, toggleSpinner, handleBarChartData } = useData();
   const [productList, setProductList] = useState<Product[]>([]);
   const [product, setProduct] = useState<number[]>([]);
-  const [disable, setDisable] = useState<boolean>(false);
+  const [disable, setDisable] = useState<boolean>(true);
   /**get all category */
   async function getProductByCatg(arg: string) {
     try {
@@ -96,7 +96,7 @@ const FilterSection: React.FC<{
         <Button
           fullWidth
           variant="contained"
-          disabled={disable && !!category}
+          disabled={disable || !category}
           onClick={handleSubmit}
           sx={{ my: 2 }}
         >
